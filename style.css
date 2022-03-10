@@ -9,7 +9,8 @@
     width: 150px;
     height: 400px;
     position: absolute;
-    background-color: beige;
+    background-image: url("img/gun.png");
+    background-repeat: no-repeat;
     bottom: 0px;
 }
 #enemy1 { left: 5px; }
@@ -19,6 +20,7 @@
 #enemy5 { left: 645px; }
 
 .enemy.dead {
-	background-color: gray;
-	height: 50px;
+	background-image: url("img/gun2.png");
+    background-repeat: no-repeat;
+	height: 177px;
      }
