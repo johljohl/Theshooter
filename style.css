@@ -1,26 +1,169 @@
+body {
+  font-family: "Rye", cursive;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#startScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+#startScreen h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.game-mode {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+#startScreen button {
+  font-size: 24px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+#attractMode {
+  width: 800px;
+  height: 600px;
+  border-radius: 20px;
+  border: 60px solid greenyellow;
+  margin-top: 20px;
+  position: relative;
+  background-image: url("./img/An_8-bit_style_wild_west_scene_background_featurin.png");
+  background-size: cover;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+
+#attractMode .enemy {
+  width: 150px;
+  height: 400px;
+  background-image: url("img/gunman.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0px;
+
+  left: -150px;
+  animation: moveEnemy 5s linear infinite;
+}
+
+@keyframes moveEnemy {
+  0% {
+    left: -150px;
+  }
+  50% {
+    left: calc(100% + 150px);
+  }
+  100% {
+    left: -150px;
+  }
+}
+
 #gameFrame {
-    background-color: black;
-    height: 600px;
-    width: 800px;
-    margin: auto;
-    position: relative;
+  background-image: url("./img/An_8-bit_style_wild_west_scene_background_featurin.png");
+  background-size: cover;
+  border-radius: 10px;
+  border: 6px solid greenyellow;
+  height: 600px;
+  width: 800px;
+  margin: auto;
+  position: relative;
+  border: 2px solid #000;
+  overflow: hidden;
+  display: none; /* hide game frame initially */
 }
+
 .enemy {
-    width: 150px;
-    height: 400px;
-    position: absolute;
-    background-image: url("img/gun.png");
-    background-repeat: no-repeat;
-    bottom: 0px;
+  width: 150px;
+  height: 400px;
+  position: absolute;
+  background-image: url("img/gunman.png");
+  background-repeat: no-repeat;
+  bottom: 0px;
+  transition: all 0.3s ease-in-out;
+  transform-origin: bottom;
 }
-#enemy1 { left: 5px; }
-#enemy2 { left: 165px; }
-#enemy3 { left: 325px; }
-#enemy4 { left: 485px; }
-#enemy5 { left: 645px; }
 
 .enemy.dead {
-	background-image: url("img/gun2.png");
-    background-repeat: no-repeat;
-	height: 177px;
-     }
+  background-image: url("img/gunman-dead.png");
+  background-repeat: no-repeat;
+  height: 177px;
+  animation-name: fall;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+#scoreBoard {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+  display: none; /* hide score board initially */
+}
+
+#bullets {
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+}
+
+#reloadButton {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 10px 20px;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+#gameOverScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#finalScore {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.restartButton {
+  font-size: 24px;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}

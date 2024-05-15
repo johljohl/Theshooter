@@ -1,22 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <title>Wild Gunman</title>
 </head>
 <body>
-   <div id="gameFrame">
-
-    <div class="enemy" id="enemy1" onclick="iShoot(this)"></div>
-    <div class="enemy" id="enemy2" onclick="iShoot(this)"></div>
-    <div class="enemy" id="enemy3" onclick="iShoot(this)"></div>
-    <div class="enemy" id="enemy4" onclick="iShoot(this)"></div>
-    <div class="enemy" id="enemy5" onclick="iShoot(this)"></div>
-
-   </div>
-    <script src="app.js"></script>
+  <div id="startScreen">
+    <h1>Wild Gunman</h1> <div id="attractMode">
+      <div class="enemy" id="attractEnemy"></div>
+    </div>
+    <div class="game-mode">
+      <button onclick="startGame('A')">Game A</button>
+      <span>One Gunman</span>
+    </div>
+    <div class="game-mode">
+      <button onclick="startGame('B')">Game B</button>
+      <span>Two Gunmen</span>
+    </div>
+   
+  </div>
+  <div id="gameFrame"></div>
+  <div id="scoreBoard">
+    <span>Score: </span>
+    <span id="score">0</span>
+    <span>Lives: </span>
+    <span id="lives">3</span>
+    <span>Bullets: </span>
+    <span id="bullets">6</span>
+    <span>Time left: </span>
+    <span id="timer">30</span>
+    <button id="reloadButton" onclick="reloadGun()">Reload</button>
+  </div>
+  <div id="gameOverScreen">
+    <h1>Game Over</h1>
+    <p>Your final score is: <span id="finalScore"></span></p>
+    <button onclick="restartGame()">Restart Game</button>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
